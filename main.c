@@ -14,13 +14,13 @@ typedef struct
 
 TodoColumn defaultColumns[] = {
   {
-    0, "Pending", NULL,
+    0, "Pending", {0},
   },
   {
-    1, "In Progress", NULL
+    1, "In Progress", {0},
   },
   {
-    2, "Done", NULL
+    2, "Done", {0},
   }
 };
 
@@ -38,7 +38,6 @@ int main(int argc, char **argv)
     // Draw
     BeginDrawing();
     ClearBackground(darkGreen);
-    InitializeColumnsPosition(defaultColumns, 3);
     DrawColumns(defaultColumns, 3);
     EndDrawing();
 

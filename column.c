@@ -12,13 +12,10 @@ void InitializeColumnsPosition(TodoColumn *columns, int length)
   for (int i = 0; i < length; i++)
   {
     TodoColumn *col = &columns[i];
-    SqrTransform newTransform = {
-      i * columnWidth,
-      0,
-      columnWidth,
-      WINDOW_HEIGHT,
+    col->transform = (SqrTransform){
+      .position = { i * columnWidth, 0 },
+      .size = {columnWidth, WINDOW_HEIGHT}
     };
-    col->transform = &newTransform;
   }
 }
 
@@ -28,12 +25,12 @@ void DrawColumns(TodoColumn *colummns, int length)
   for (int i = 0; i < length; i++)
   {
     TodoColumn column = colummns[i];
-    SqrTransform* transform = column.transform;
+    SqrTransform transform = column.transform;
     DrawRectangle(
-      transform->position.x,
-      transform->position.y,
-      transform->size.x,
-      transform->size.y,
+      transform.position.x,
+      transform.position.y,
+      transform.size.x,
+      transform.size.y,
       colors[i]
     );
   }

@@ -7,7 +7,7 @@ typedef struct
 {
   int id;
   char* title;
-  SqrTransform *transform;
+  SqrTransform transform;
 } TodoColumn;
 
 void DrawColumns(TodoColumn *columns, int length);
